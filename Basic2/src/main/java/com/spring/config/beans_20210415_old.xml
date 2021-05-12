@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- xml을 로딩 할 때 자동으로 객체가 생성된다. -->
+<!-- id 속성 없으면 객체 주소값 받아서 사용 못함 -->
+<bean class="com.spring.beans.Bean"/>
+
+<!-- xml을 로딩 할 때 자동으로 객체가 생성된다. -->
+<!-- id 속성에 이름을 주면 getBean 메소드를 통해 객체의 주소값을 받아 사용할 수 있다. -->
+<!-- 생성된 객체는 더 이상 생성이 안됨(싱글톤) -->
+<bean class="com.spring.beans.Bean" id="b1"/>
+
+<bean class="com.spring.beans.Bean" id="b2" lazy-init="true"/>
+
+<!-- prototype 은 xml 로딩할 때 객체 생성되지 않는다.  -->
+<!-- getBean 메소드를 호출할 때마다 새로운 객체 생성된다. -->
+<bean class="com.spring.beans.Bean" id="b3" scope="prototype"/>
+</beans>

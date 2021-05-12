@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	default-destroy-method="default_destroy"
+	default-init-method="default_init" 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- 아이디가 b1인 빈을 겟빈할때 만드는데, 생성될때 b1_init, 소멸될때 b1_destroy를 실행시킨다 -->
+<bean destroy-method="b1_destroy" init-method="b1_init" lazy-init="true" class="com.spring.beans.Bean" id="b1"></bean>
+
+<!-- init, destroy 메소드가 설정되어 있지 않아 , default-init, default-destroy 호출 -->
+<bean class = "com.spring.beans.Bean2" id="b2" lazy-init="true"></bean>
+
+<!-- init, destroy 메소드가 설정되어 있으면 default-init, default-destroy 보다 우선되어 init, destory 호출 -->
+<bean destroy-method="b3_destroy" init-method="b3_init" class = "com.spring.beans.Bean3" id="b3" lazy-init="true"></bean>
+
+<!-- default init, default destroy, init, destroy 메소드가 모두 없는 경우 오류가 발생한다. Bean4 지움  -->
+</beans>

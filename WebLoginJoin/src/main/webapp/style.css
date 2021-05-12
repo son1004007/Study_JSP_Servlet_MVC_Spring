@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+body{
+    font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
+    color: black;
+    min-width:320px;
+    height : 160%;
+}

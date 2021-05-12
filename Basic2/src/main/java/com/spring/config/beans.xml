@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean init-method="b1_init" lazy-init="true" class="com.spring.beans.Bean" id="b1"></bean>
+	<bean destroy-method="b2_destroy" init-method="b2_init" class = "com.spring.beans.Bean2" id="b2" lazy-init="true"></bean>
+	<bean class='com.spring.beans.Processor'/>
+</beans>

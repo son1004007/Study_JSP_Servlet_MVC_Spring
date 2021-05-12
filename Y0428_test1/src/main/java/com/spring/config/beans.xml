@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/context
+	                    http://www.springframework.org/schema/context/spring-context.xsd
+	                    http://www.springframework.org/schema/aop
+	                    http://www.springframework.org/schema/aop/spring-aop.xsd">
+	                    
+	<!-- 문제1번 -->
+	<bean id ="test1" class="com.spring.beans.Test"></bean>
+	<bean id ="test2" class="com.spring.beans.Test"></bean>
+	
+	<!-- 문제2번 -->
+
+	<bean id ="test3" class="com.spring.beans.Test" autowire="byName">
+		<property name="data3" value="99"/> 
+	</bean>
+	
+	<bean id ="test4" class="com.spring.beans.Test" autowire="byType">
+		<property name="data4" value="데이터4"/> 
+	</bean>
+	<!-- 문제3번  -->
+	<context:annotation-config/>
+	<!-- <bean id="test4" class="com.spring.beans.Test2" /> -->
+</beans>

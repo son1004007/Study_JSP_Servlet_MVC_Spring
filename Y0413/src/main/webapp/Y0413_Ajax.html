@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+function get(){
+	$.ajax({
+		url : "Y0413_data.txt",
+		type : "post",
+		dataType : "text",
+		success: function(result){
+			$("#re").text(result);
+		}
+	});
+}
+
+function gethtml(){
+	$.ajax({
+		url : "Y0414_data2.html",
+		type: "post",
+		dataType:"html",
+		success : function(result){
+			$("#re").html(result);
+		}
+	})
+}
+
+function getxml(){
+	$.ajax({
+		type:"post",
+		async:false,
+		url : "Y0414_data3.xml",
+		dataType:"xml",
+		success : function(result){
+			var data = $(result).find("data");
+			$(data).each(function(idx, obj)
+			{
+				var str1=$(obj).find("str1");
+				var str2=$(obj).find("str2");
+				var str11=$(str1).text();
+				var str22=$(str2).text();
+				
+				$("#re").append(str11+"<br/>");
+				$("#re").append(str22+"<br/>");
+			})	
+		}
+		
+	})
+}
+
+function getjson(){
+	$.ajax({
+		url : "Y0414_data4.json",
+		type:"post",
+		dataType:"json",
+		success : function(result){
+			$("#re").append(result.data1+"<br>");
+			$("#re").append(result.data2+"<br>");
+			$("#re").append(result.data3+"<br>");
+		}
+		
+	})
+}
+</script>
+</head>
+<body>
+
+
+<button onclick="get()">txt</button>
+<button onclick="gethtml()">html</button>
+<button onclick="getxml()">xml</button>
+<button onclick="getjson()">json</button>
+<div id="re"></div>
+
+</body>
+</html>
